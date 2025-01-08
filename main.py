@@ -19,14 +19,18 @@ def main():
 
     # 3DMark
     for benchmark_name in ul_3dmarks:
-        output_path = output_dir / f"{benchmark_name.split('.')[0]}.3dmdef"
-        os.system(f"{args.dir_path}\\\\3DMarkCmd.exe --definition={benchmark_name} --result={output_path.absolute()}")
+        output_path = output_dir / f"{benchmark_name.split('.')[0]}.3dmark-result"
+        xml_output_path = output_dir / f"{benchmark_name.split('.')[0]}.xml"
+        os.system(f'{args.dir_path}\\3DMark\\3DMarkCmd.exe --definition={benchmark_name} '
+                  f'--result="{output_path.absolute()}" --export="{xml_output_path.absolute()}"')
         time.sleep(5*60)
 
     # Procyon
     for benchmark_name in ul_procyons[args.device]:
-        output_path = output_dir / f"{benchmark_name.split('/')[-1]}"
-        os.system(f"{args.dir_path}\\\\ProcyonCmd.exe --definition={benchmark_name} --result={output_path.absolute()}")
+        output_path = output_dir / f"{benchmark_name.split('/')[-1].split('.')[0]}.procyon-result"
+        csv_output_path = output_dir / f"{benchmark_name.split('/')[-1].split('.')[0]}.csv"
+        os.system(f'{args.dir_path}\\Procyon\\ProcyonCmd.exe --definition={benchmark_name} '
+                  f'--result="{output_path.absolute()}" --export-csv "{csv_output_path.absolute()}"')
         time.sleep(5*60)
 
 if __name__ == '__main__':
