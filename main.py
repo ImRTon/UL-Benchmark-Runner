@@ -11,6 +11,7 @@ def get_args():
     parser.add_argument('-i', '--dir_path', type=str, required=True, help='Benchmarks parent directory.')
     parser.add_argument('-d', '--device', type=str, required=True, help='cuda or xpu')
     parser.add_argument('-o', '--output', type=str, required=True, help='Output dir path')
+    parser.add_argument('--shutdown', action='store_true', help='Shutdown the computer after complete the benchmarks')
     return parser.parse_args()
 
 def main():
@@ -32,6 +33,9 @@ def main():
         os.system(f'{args.dir_path}\\Procyon\\ProcyonCmd.exe --definition={benchmark_name} '
                   f'--result="{output_path.absolute()}" --export-csv "{csv_output_path.absolute()}"')
         time.sleep(5*60)
+
+    if args.shutdown:
+        os.system("shutdown /s /t 1") # Shutdown the computer
 
 if __name__ == '__main__':
     main()
