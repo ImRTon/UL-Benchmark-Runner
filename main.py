@@ -51,7 +51,7 @@ def main():
             time.sleep(args.sleep)
 
     if args.shutdown:
-        os.system("shutdown /s /t 1") # Shutdown the computer
+        subprocess.run(["shutdown", "/s", "/t", "1"]) # Shutdown the computer
 
 if __name__ == '__main__':
     main()
