@@ -45,7 +45,7 @@ def main():
             subprocess.run([
                 f'{args.dir_path}\\Procyon\\ProcyonCmd.exe', 
                 f'--definition={Path.cwd().absolute()}\\{benchmark_name}', 
-                f'--result="{output_path.absolute()}"', 
+                f'--out="{output_path.absolute()}"', 
                 f'--export-csv="{csv_output_path.absolute()}"'
             ])
             time.sleep(args.sleep)
