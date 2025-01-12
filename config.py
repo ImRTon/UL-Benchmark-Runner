@@ -3,7 +3,7 @@ ul_3dmarks = [
     "steelnomad_dx12.3dmdef",
     "speedway.3dmdef",
     "solarbay.3dmdef",
-    "portroyal.3dmdef"
+    "portroyal.3dmdef",
     "timespy.3dmdef",
     "timespy_extreme.3dmdef"
 ]
